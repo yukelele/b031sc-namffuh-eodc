@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <map>
  
 using namespace std; 
@@ -8,25 +7,19 @@ map<int,int> mapOfAscii;
 
 int charToAscii(char character);
 
-int main() {
+int main(int argc, char* argv[]) {
   
   string line;
-  ifstream myfile ("test_files/test2.in");
-  if (myfile.is_open())
-    {
-      int numberOfLine = 0;
-      while ( getline (myfile,line) )
-	{ 
-	  numberOfLine++;
-	  for(int i=0; i<line.length(); i++){
-	    mapOfAscii[charToAscii(line[i])]++;
-	  }	 	
-	}
-      if(numberOfLine > 1) mapOfAscii[10] = numberOfLine; //frequency for Ascii '\n'
-      myfile.close();
+  string filename;
+  int numberOfLine = 0;
+  while ( getline (cin,line) )
+    { 
+      numberOfLine++;
+      for(int i=0; i<line.length(); i++){
+	mapOfAscii[charToAscii(line[i])]++;
+      }	 	
     }
-
-  else cout << "Unable to open file"; 
+  if(numberOfLine > 1) mapOfAscii[10] = numberOfLine; //frequency for Ascii '\n'
 
   for (map<int,int>::iterator it=mapOfAscii.begin(); it!=mapOfAscii.end(); ++it)
     cout << it->first << "    " << it->second << '\n';
