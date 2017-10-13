@@ -11,7 +11,7 @@ int charToAscii(char character);
 int main() {
   
   string line;
-  ifstream myfile ("test_files/test3.in");
+  ifstream myfile ("test_files/test4.in");
   if (myfile.is_open())
     {
       while ( getline (myfile,line) )
