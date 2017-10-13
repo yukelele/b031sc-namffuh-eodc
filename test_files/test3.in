@@ -1,0 +1,257 @@
+
+
+<TITLE> CS-130b: Data Structure and Algorithms </TITLE>
+
+<BODY text = "BLACK" link="BLUE" vlink="RED" bgcolor="WHITE">
+
+<p>
+<center>
+<img alt="o" src="../picdir/brgld.gif"><P>
+</center>
+<p>
+
+<CENTER><H1>CS-130b: Data Structures and Algorithms </H1>
+
+
+<dl>
+<dd> Instructor: Prof. Subhash Suri (suri@cs.ucsb.edu)
+<dd> Class:   TuTh 9:30-10:45 (Phelps 3526)
+<dd> Office Hours:  Wed 11-12 (HFH 2111) or email
+</dl>
+
+</CENTER>
+
+<p>
+<center>
+<img alt="o" src="../picdir/brgld.gif"><P>
+</center>
+<p>
+
+
+<UL>
+<LI><H3> Course Information</H3><P>
+<ul>
+<li><a href="SchedFall17.txt">Syllabus</a><p>
+<li>Teaching Assistants:
+	<ul>
+	<li> Esther Showalter (ehs@umail.ucsb.edu). <br>
+		Office Hours:  Mon 2-4 PM, CSIL <p>
+     	<li> Raymond Wong (rwong@cs.ucsb.edu). <br>
+		Office Hours: Fri 12-2 PM, CSIL <p>
+	</ul><p>
+<li> Discussion Sections:
+	<ul>
+	<li> Thur 12:00-12:50 (PHELPS 3526)
+	<li> Thur  1:00-1:50 (PHELPS 3526)
+	</ul><p>
+
+<li> Recommended Textbooks:
+	<ul> 
+	<li> Data Structures and Algorithm Analysis, by Weiss 
+	<li> Algorithm Design, by Kleinberg and Tardos
+	<li> Introduction to Algorithms, by Cormen, Leiserson, Rivest, Stein.
+	</ul><p>
+<li>  Grade Composition
+	<ul> 
+        <li> 30% Homeworks
+	<li> 20% Programming Assignments
+	<li> 25% Midterm
+	<li> 25% Final Exam
+	</ul><p>
+</ul>
+</ul>
+
+
+
+<UL>
+<LI><H3>Lecture Slides</H3> <p>
+
+<ul>
+<li>  Introduction (lecture 1)  <A HREF="Intro.txt"> (txt)</a>  
+<li>  Greedy Algorithms <A HREF="Greedy.pdf"> (pdf)</a>  
+<li>  Divide and Conquer<A HREF="dc1.pdf"> (pdf)</a> and <A HREF="dc2.pdf"> (pdf)</a>
+<li>  Dynamic Programming<A HREF="dp.pdf"> (pdf)</a> 
+<li>  NP-Completeness <A HREF="npc.pdf"> (pdf) </a> 
+<li>  Approximation Algorithms  <A HREF="1.txt"> (Vertex and Set Covers) </a> 
+<li>  Approximation Algorithms  <A HREF="2.txt"> (Bin Packing) </a> 
+<li>  Approximation Algorithms  <A HREF="3.pdf"> (Others) </a> 
+<!-- <li>  Lower Bounds <A HREF="LowerBounds.pdf"> (pdf) </a> or <A HREF="NewLower.pdf"> (Landscape pdf) </a> or <A HREF="LowerBounds.ps"> (postscript)</a> -->
+</ul>
+<P>
+
+
+<LI><H3>Homework Assignments</h3>
+<dl>
+<dd> 1. <a href="hw1.pdf"> Homework #1. </a>
+<dd> 2. <a href="hw2.pdf"> Homework #2. </a>
+<dd> 3. <a href="hw3.pdf"> Homework #3. </a>
+<!--
+<dd> 2. <a href="Ex3.pdf"> Homework #3. </a> 	  Due IN CLASS on Mar 4, 2010</b>.
+
+<dd> 2. Homework #2 <a href="Ex2.pdf"> (in pdf). </a>
+          Due IN CLASS on April 15, 2008</b>.
+<dd> 3. Homework #3 <a href="Ex3.pdf"> (in pdf). </a>
+          Due IN CLASS on May 6, 2008</b>.
+<dd> 4. Homework #4 <a href="Ex4.pdf"> (in pdf). </a> <b>  Due IN CLASS on May 20, 2008</b>.
+<dd> 4. Homework #5 <a href="Ex5.pdf"> (in pdf). </a> <b>  Due IN CLASS on June 3, 2008</b>.
+
+
+<dd> 2. Homework #2 <a href="hw2.pdf"> (in pdf). </a>   
+	<b>  Due IN CLASS on May 23, 2006</b>.
+
+	1. Solutions #1 <a href="hw1-sol.ps"> (in postscript) </a> or
+                    <a href="hw1-sol.pdf"> (in pdf). </a>
+<dd> 3. Solutions to HW #2 <a href="hw2-sol.ps"> (in ps) </a> or
+	<a href="hw2-sol.pdf"> (in pdf). </a> <p> 
+
+
+<dd> <b> Some <a href="instr.txt"> suggestions </a> for
+	writing homework solutions.</b>
+-->
+</dl>
+
+
+
+<LI><H3>Programming Assignments</h3>
+
+<dl>
+
+<dd> 1. <b>Programming Assignment #1</b>
+                <a href="lab1.pdf"> Program 1. </a> <b> Deadline TBD (11:59 PM).</b><br><p>
+
+<dd> 2. <b>Programming Assignment #2</b>
+                <a href="lab2.pdf"> Program 2. </a> <b> Deadline TBD (11:59 PM).</b><br><p>
+
+<!--
+
+<dd> 1. <b>Programming Assignment #1</b> 
+   <a href="huffman.pdf"> Huffman Coding.</a>  <b> DUE April 24 (midnight, 11:59 PM).</b><br><p>
+
+<dd> <b>Gnuplot help tutorial </b>
+   <a href="gnuplot.html"> Gnuplot Help</a> <br><p>
+	The following perl scripts are provided as a reference,
+	and also to help you check the correctness of your code.
+	
+	<b>Scripts </b> for various functions:
+	<a href="frequencies.pl"> frequency</a>,  
+	<a href="huffman.pl"> huffman</a>,  
+	<a href="encode.pl"> encode</a>,  
+	<a href="decode.pl"> decode</a>. 
+	<a href="make_demo.tar.gz"> Make_Demo.tar.gz</a>.
+	<p>
+
+
+<dd> 2. <b>Programming Assignment #2</b> 
+                <a href="lcs.pdf"> Program 2. </a> <b> DEADLINE May 24 (11:59 PM).</b><br><p>
+
+-->
+
+</dl>
+
+
+
+<!--
+
+<LI><H3>Practice Problems </h3>
+<dl>
+<dd> Greedy Algorithms <a href="PracGreedy.pdf"> Problems </a></b>.
+<dd> Greedy Algorithms <a href="PracGreedySol.pdf"> Solutions </a></b>.
+</dl>
+
+<LI><H3>Exams</h3>
+<dl>
+<dd> 1. <b> Midterm #1</b>.
+<dd> 2. <b> Midterm #2</b>.
+<dd> 3. <b> Final</b>.<P>
+
+</dl>
+
+-->
+
+
+
+
+<!--
+<blockquote></blockquote>
+
+<p>
+<H4><LI type=dot>
+<a href=Turnin130b.html> Turnin Instructions</a><br></H4>
+For Project 1 you do turnin prog1@cs130b *.c *.h makefile
+<p>
+
+<P>
+
+For Project 2 you do turnin prog2@cs130b *.c *.h makefile <p>
+-->
+
+</UL>
+
+
+<UL>
+<p>
+<H4><LI type=dot>
+<a href= https://piazza.com/ucsb/fall2017/cs130b/home> Piazza Page </a><br></H4>
+</UL>
+
+
+<!--
+
+<p>
+<H3><LI type=dot>News</LI></H3>
+<blockquote>
+
+<p>
+<LI type=circle>Class web page: www.cs.ucsb.edu/~suri/cs130b.html<br>
+<p>
+<LI type=circle>Discussion sessions start Wed, April 7, 2004.
+</blockquote>
+
+
+<p>
+<H3><LI type=dot>Tentative list of topics to be covered:</LI></H3>
+<blockquote>
+<LI type=square>Introduction (O, Omega, and Theta notation) [Sahni, Chap 1-2] <br>
+</backquote>
+<LI type=square>Greedy Methods. [Sahni, Chap 13; CLR, Chap 17] <br>
+<blockquote>
+<LI type=circle>Coin changing problem<br>
+<LI type=circle>Activity selection problem<br>
+<LI type=circle>Huffman coding [Sahni, Chap 9.5] <br>
+<LI type=circle>Single Source Shortest Paths<br>
+<LI type=circle>Min Cost Spanning Trees (Kruskal, Prim)<br>
+</blockquote>
+<LI type=square>Divide and Conquer [Sahni, Chap 14; CLR, Chap 4, 8, 10, 31]<br>
+<blockquote>
+<LI type=circle>Binary search and Merge sort<br>
+<LI type=circle>Basic Theorem For Solving Recurrence Relations<br>
+<LI type=circle>Proof of Theorem<br>
+<LI type=circle>Applications of Basic Theorem<br>
+<LI type=circle>Multiplying long integers<br>
+<LI type=circle>Fast Matrix Multiplication<br>
+<LI type=circle>Quicksort<br>
+<LI type=circle>Selecting the kth Smallest Element<br>
+<LI type=circle>Convex Hull<br>
+</blockquote>
+<LI type=square>Dynamic Programming [Sahni, Chap 15; CLR, Chap 16]<br>
+<blockquote>
+<LI type=circle>Matrix Prod Chains<br>
+<LI type=circle>Longest common subsequence<br>
+<LI type=circle>Triangulating a Complex Polygon<br>
+<LI type=circle>All Pairs Shortest Paths<br>
+</blockquote>
+<LI type=square>Approximation and Lower Bounds <br>
+<blockquote>
+<LI type=circle>Knapsack: 2-approximation<br>
+<LI type=circle>Traveling Salesman: 2-approximation<br>
+<LI type=circle>Sorting decision tree lower bound<br>
+<LI type=circle>Median finding lower bound<br>
+</blockquote>
+</blockquote>
+</LI></H3>
+
+-->
+
+</body>
+</html>
+
