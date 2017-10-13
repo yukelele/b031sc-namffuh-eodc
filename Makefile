@@ -8,4 +8,4 @@ frequencies: frequencies.o
 	${CXX} $^ -o $@
 
 clean:
-	/bin/rm -f prog1 *.o *~
+	/bin/rm -f prog1 *.o *~ 
