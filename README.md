@@ -34,9 +34,9 @@ The outut of the frequencies program can be use as the input to the huffman prog
     
     $ cat input | ./frequencies | ./huffman
 
-To save this to a file use output redirection:
-   
-   $ cat input | ./frequencies | ./huffman | > code
+To save this to a file use output redirection: 
+    
+    $ cat input | ./frequencies | ./huffman | > code
 
 Now it is possible to use the saved code with the encode and decode programs:
     
