@@ -2,64 +2,99 @@
 #include <algorithm>
 #include <vector>
 #include <queue>
+#include <sstream>
 
 using namespace std;
 
+// Huffman tree node
+struct MinHeapNode{          
+    string data;                // One of the input characters
+    unsigned freq;             // Frequency of the character
+    MinHeapNode *left, *right; // Left and right child
+ 
+    MinHeapNode(string data, unsigned freq){
+        left = right = NULL;
+        this->data = data;
+        this->freq = freq;
+    }
+};
+
+ // For comparison of two heap nodes (needed in min heap) 
+struct compare{                
+    bool operator()(MinHeapNode* l, MinHeapNode* r){
+        return (l->freq > r->freq);
+    }
+};
+
+void printCodes(struct MinHeapNode* root, string str);
+void HuffmanCodes(vector<string> data, vector<int> freq, int size);
+
 int main(int argc, char* argv[]){
 
-srand(time(0));
-    priority_queue<int,vector<int>,greater<int> > q;
-    //for( int i = 0; i != 10; ++i ) q.push(rand()%10);
-    q.push(10); q.push(20); q.push(30); q.push(5); q.push(15);
-    cout << "Min-heap, popped one by one: ";
-    while( ! q.empty() ) {
-        cout << q.top() << ' ';  // 0 3 3 3 4 5 5 6 8 9
-        q.pop();
-    }
-    cout << endl;
-   
+    vector <string> data;
+    vector <int> frequency;
 
-  
-  /*
-  int myints[] = {10,20,30,5,15};
-  std::vector<int> v(myints,myints+5);
+    string line;
+    while ( getline (cin, line) )
+      {
+        istringstream iss(line);
+        string value;
+        int freq; 
+        iss >> value;
+        iss >> freq;
 
-  std::make_heap (v.begin(),v.end(), greater<int>());
-  std::cout << "initial min heap   : " << v.front() << '\n';
+        data.push_back(value);
+        frequency.push_back(freq);        
+      }
 
-  for(unsigned i=0; i<v.size(); i++)
-    cout << ' ' << v[i];
-  cout << endl;
+    int size = data.size();
+    HuffmanCodes(data, frequency, size);
 
-  std::sort_heap (v.begin(), v.end(),greater<int>());
+    return 0; 
+}
 
-  for(unsigned i=0; i<v.size(); i++)
-    cout << ' ' << v[i];
-  cout << endl;
-  
-  std::pop_heap (v.begin(),v.end(),greater<int>());
-  v.pop_back();
-  std::cout << "min heap after pop : " << v.front() << '\n';
 
-  for(unsigned i=0; i<v.size(); i++)
-    cout << ' ' << v[i];
-  cout << endl;
-
-  
-  v.push_back(99); std::push_heap (v.begin(),v.end(), greater<int>());
-  std::cout << "max heap after push: " << v.front() << '\n';
-
-  std::sort_heap (v.begin(),v.end());
-
-  std::cout << "final sorted range :";
-  for (unsigned i=0; i<v.size(); i++)
-    std::cout << ' ' << v[i];
-
-  std::cout << '\n';
+// Prints huffman codes from the root of Huffman Tree.
+void printCodes(struct MinHeapNode* root, string str){
+    if (!root)
+        return;
  
-  */
-
-
-
-  return 0; 
+    if (root->data != "$")
+        cout << root->data << "    " << str << "\n";
+ 
+    printCodes(root->left, str + "0");
+    printCodes(root->right, str + "1");
+}
+ 
+// The main function that builds a Huffman Tree and
+// print codes by traversing the built Huffman Tree
+void HuffmanCodes(vector<string> data, vector<int> freq, int size){
+    struct MinHeapNode *left, *right, *top;
+ 
+    // Create a min heap & inserts all characters of data[]
+    priority_queue<MinHeapNode*, vector<MinHeapNode*>, compare> minHeap;
+    for (int i = 0; i < size; ++i)
+        minHeap.push(new MinHeapNode(data[i], freq[i]));
+ 
+    // Iterate while size of heap doesn't become 1
+    while (minHeap.size() != 1){
+        // Extract the two minimum freq items from min heap
+        left = minHeap.top();
+        minHeap.pop();
+ 
+        right = minHeap.top();
+        minHeap.pop();
+ 
+        // Create a new internal node with frequency equal to the sum of the two nodes frequencies. 
+        // Make the two extracted node as left and right children of this new node. 
+        // Add this node to the min heap
+        // '$' is a special value for internal nodes, not used
+        top = new MinHeapNode("$", left->freq + right->freq);
+        top->left = left;
+        top->right = right;
+        minHeap.push(top);
+    }
+ 
+    // Print Huffman codes using the Huffman tree built above
+    printCodes(minHeap.top(), "");
 }

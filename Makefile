@@ -8,4 +8,12 @@ frequencies: frequencies.o
 	${CXX} $^ -o $@
 
 clean:
-	/bin/rm -f prog1 *.o *~ 
+	/bin/rm -f frequencies *.o *~ 
+
+all: huffman
+
+huffman: huffman.o
+	${CXX} $^ -o $@
+
+clean: 
+	/bin/rm -f huffman *.o *~

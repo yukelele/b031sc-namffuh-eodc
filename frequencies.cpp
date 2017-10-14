@@ -3,20 +3,18 @@
  
 using namespace std; 
 
-map<int,int> mapOfAscii;
-
 int charToAscii(char character);
 
 int main(int argc, char* argv[]) {
   
+  map<int,int> mapOfAscii;
   string line;
-  string filename;
   int numberOfLine = 0;
   while ( getline (cin,line) )
     { 
       numberOfLine++;
       for(int i=0; i<line.length(); i++){
-	mapOfAscii[charToAscii(line[i])]++;
+	      mapOfAscii[charToAscii(line[i])]++;
       }	 	
     }
   if(numberOfLine > 1) mapOfAscii[10] = numberOfLine; //frequency for Ascii '\n'
