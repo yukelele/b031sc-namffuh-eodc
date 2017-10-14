@@ -25,16 +25,21 @@ The command 'make' generates all four executables with the correct filenames.
 # Usage
 
 The four programs are designed to work together via files and pipes.
+
 To generate a table of the occurence frequencies of various characters in an input file, run the following command:
+   
    $ cat input | ./frequencies
 
 The outut of the frequencies program can be use as the input to the huffman program to generate an optimal Huffman code for the sample input:
+    
     $ cat input | ./frequencies | ./huffman
 
 To save this to a file use output redirection: 
+   
    $ cat input | ./frequencies | ./huffman | > code
 
 Now it is possible to use the saved code with the encode and decode programs:
+    
     $ cat input | ./encode code > encoded
     $ cat encoded | ./decode code > decoded 
 
