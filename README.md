@@ -28,13 +28,13 @@ The four programs are designed to work together via files and pipes.
 
 To generate a table of the occurence frequencies of various characters in an input file, run the following command:
    
-   $ cat input | ./frequencies
+    $ cat input | ./frequencies
 
 The outut of the frequencies program can be use as the input to the huffman program to generate an optimal Huffman code for the sample input:
     
     $ cat input | ./frequencies | ./huffman
 
-To save this to a file use output redirection: 
+To save this to a file use output redirection:
    
    $ cat input | ./frequencies | ./huffman | > code
 
