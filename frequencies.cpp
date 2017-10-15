@@ -3,21 +3,18 @@
  
 using namespace std; 
 
-int charToAscii(char character);
+int charToAscii(char character); // Converting a character to its corresponding ASCII value
 
 int main(int argc, char* argv[]) {
   
   map<int,int> mapOfAscii;
-  string line;
-  int numberOfLine = 0;
-  while ( getline (cin,line) )
-    { 
-      numberOfLine++;
-      for(int i=0; i<line.length(); i++){
-	      mapOfAscii[charToAscii(line[i])]++;
-      }	 	
+
+  // read from stdin one character at a time
+  while (!cin.eof()){ 
+      char c = cin.get();
+      if(!cin.eof())
+        mapOfAscii[charToAscii(c)]++;
     }
-  if(numberOfLine > 1) mapOfAscii[10] = numberOfLine; //frequency for Ascii '\n'
 
   // print out all ASCII values with their corresponding frequency
   for (map<int,int>::iterator it=mapOfAscii.begin(); it!=mapOfAscii.end(); ++it)

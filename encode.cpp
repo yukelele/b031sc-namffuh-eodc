@@ -7,13 +7,12 @@
 
 using namespace std;
 
-int charToAscii(char character);
-string charToEncode(char c, map<string,string> encodedList);
+int charToAscii(char character); // Converting a character to its corresponding ASCII value
+string charToEncode(char c, map<string,string> encodedList); // Converting a character to its corresponding Encoded value
 
 int main( int argc, char* argv[]){
 
-  cout << "this is a program for encoding Huffman" << endl;
-
+  // store the encoded list to a map
   ifstream encodedFile(argv[1]);  
   map<string, string> mapOfEncodedAscii;
   string line1;
@@ -28,27 +27,26 @@ int main( int argc, char* argv[]){
       mapOfEncodedAscii[ascii_value] = encode_value;  
     }  
 
-
-
-  bool moreThanOneLine = false;
-  if(mapOfEncodedAscii.count("10") > 0) moreThanOneLine = true;
-  string line2;
-  while (getline (cin, line2))
+  // read from stdin one character at a time
+  while (!cin.eof()) 
     {       
-      for(int i=0; i<line2.length(); i++){
-        cout << line2[i] << " ==> " << charToEncode(line2[i], mapOfEncodedAscii) << endl;
-      }
-      if(moreThanOneLine == true) cout << mapOfEncodedAscii["10"] << endl;
+      char c = cin.get();
+      if(!cin.eof())
+        cout << charToEncode(c, mapOfEncodedAscii);
     }
+    cout << endl;
+
   return 0;
 }
 
+// Converting a character to its corresponding ASCII value
 int charToAscii(char character){
   int ascii = static_cast<int>(character);
   if(ascii < 0) return (256 + ascii);
   else return ascii;
 }
 
+// Converting a character to its corresponding Encoded value
 string charToEncode(char c, map<string,string> encodedList){
   int value = charToAscii(c);
   string ascii = to_string(value);
