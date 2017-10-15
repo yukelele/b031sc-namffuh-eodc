@@ -7,13 +7,20 @@ all: frequencies
 frequencies: frequencies.o
 	${CXX} $^ -o $@
 
-clean:
-	/bin/rm -f frequencies *.o *~ 
-
 all: huffman
 
 huffman: huffman.o
 	${CXX} $^ -o $@
 
+all: encode
+
+encode: encode.o
+	${CXX} $^ -o $@
+
+all : decode
+
+decode: decode.o
+	${CXX} $^ -o $@
+
 clean: 
-	/bin/rm -f huffman *.o *~
+	/bin/rm -f frequencies huffman encode decode *.o *~

@@ -1,4 +1,5 @@
 Yuki Mano, ysm@umail.ucsb.edu
+
 CS130B, Fall 2017
 
 # cs130b-huffman-code

@@ -26,8 +26,8 @@ struct compare{
     }
 };
 
-void printCodes(struct MinHeapNode* root, string str);
-void HuffmanCodes(vector<string> data, vector<int> freq, int size);
+void printCodes(struct MinHeapNode* root, string str); // Prints huffman codes from the root of Huffman Tree.
+void HuffmanCodes(vector<string> data, vector<int> freq, int size); // Construct a Huffman Tree and print codes by traversing the built Huffman Tree
 
 int main(int argc, char* argv[]){
 
@@ -48,7 +48,8 @@ int main(int argc, char* argv[]){
       }
 
     int size = data.size();
-    HuffmanCodes(data, frequency, size);
+    if (size == 1) cout << data[0] << "    " << "0" << endl;
+    else HuffmanCodes(data, frequency, size);
 
     return 0; 
 }
@@ -66,8 +67,7 @@ void printCodes(struct MinHeapNode* root, string str){
     printCodes(root->right, str + "1");
 }
  
-// The main function that builds a Huffman Tree and
-// print codes by traversing the built Huffman Tree
+// Construct a Huffman Tree and print codes by traversing the built Huffman Tree
 void HuffmanCodes(vector<string> data, vector<int> freq, int size){
     struct MinHeapNode *left, *right, *top;
  
