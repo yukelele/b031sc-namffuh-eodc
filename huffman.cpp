@@ -1,3 +1,5 @@
+// Yuki Mano, ysm@umail.ucsb.edu, CS130B, Fall 2017
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
