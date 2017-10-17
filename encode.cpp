@@ -51,16 +51,17 @@ int main( int argc, char* argv[]){
           bit_string = bit_string.substr(8, bit_count); 
 
           cout << char(binary_to_decimal(byte_string));
-      
       }
     }
 
     // Patting "0" to multiple of 8 bits
     int patting = 8 - bit_count; 
-    for (int i=0; i<patting; i++){
-      bit_string += "0";
+    if(patting != 8){
+      for (int i=0; i<patting; i++){
+        bit_string += "0";
+      }
+      cout << char(binary_to_decimal(bit_string));
     }   
-    cout << char(binary_to_decimal(bit_string));
     cout << char(patting);
     
   return 0;

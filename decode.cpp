@@ -37,13 +37,9 @@ int main (int argc, char* argv[]){
   while (!cin.eof())
   {   
         c = cin.get();
-        
         d = cin.get(); 
-        
-        
         if(cin.peek()!=EOF)
         { 
-        
           cin.putback(d);
      
           binary_string += decimal_to_binary(int(c)); 
@@ -57,12 +53,7 @@ int main (int argc, char* argv[]){
             if(mapOfEncodedAscii.count(binary_string.substr(0, i)) == 1){
               int asciiVal = stoi(mapOfEncodedAscii[binary_string.substr(0,i)]); 
               char asciiChar = asciiVal;
-              
-              //cout << "string : " << binary_string.substr(0,i) << " = ";
-              //cout << "int : " << asciiVal << " == ";
-              //cout << "char : ";
               cout << asciiChar;
-              //cout << " ||| " ;
 
               bit_count -= i;
               binary_string = binary_string.substr(i, bit_count); 
@@ -74,41 +65,32 @@ int main (int argc, char* argv[]){
             }
           }
         }
-        else{
+        else
+        {
           binary_string += decimal_to_binary(int(c)).substr(0,8-int(d));
+          bit_count = binary_string.length();
 
-    bit_count = binary_string.length();
-    int i=1;
-    bool loop = true;
-    while(bit_count!=0 && loop){
-      if(i == bit_count) loop = false; 
+          int i=1;
+          bool loop = true;
+          while(bit_count!=0 && loop){
+            if(i == bit_count) loop = false; 
 
-      if(mapOfEncodedAscii.count(binary_string.substr(0, i)) == 1){
-        int asciiVal = stoi(mapOfEncodedAscii[binary_string.substr(0,i)]); 
-        char asciiChar = asciiVal;
-        //cout << "int value is : "<< mapOfEncodedAscii[binary_string.substr(0,i)] << endl;
-        //cout << asciiChar;
-         //cout << "the last extra int:  " << asciiVal << " == ";
-           //   cout << "char: ";
+            if(mapOfEncodedAscii.count(binary_string.substr(0, i)) == 1){
+              int asciiVal = stoi(mapOfEncodedAscii[binary_string.substr(0,i)]); 
+              char asciiChar = asciiVal;
               cout << asciiChar;
-             // cout << " ||| " ;
 
-        bit_count -= i;
-        binary_string = binary_string.substr(i, bit_count); 
-        i = 1;          
-      }
+              bit_count -= i;
+              binary_string = binary_string.substr(i, bit_count); 
+              i = 1;          
+            }
 
-      else{
-        i++;
-      }
+            else{
+              i++;
+            }
+          }
         }
-          //break;
     }
-   
- 
-    
-    }
-
   return 0;
 }
 
