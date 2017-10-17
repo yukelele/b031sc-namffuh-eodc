@@ -51,20 +51,19 @@ int main( int argc, char* argv[]){
           bit_count -= 8;
           bit_string = bit_string.substr(8, bit_count); 
 
-          //cout << byte_string << " is the binary code for : "  << binary_to_decimal(byte_string) << endl;
-
           cout << char(binary_to_decimal(byte_string));
         }
       }
     }
+    // Patting "0" to multiple of 8 bits
     for (int i=0; i<bit_count; i++){
       bit_string += "0";
-    }
-    //cout << binary_to_decimal(bit_string) << endl;
+    }   
     cout << char(binary_to_decimal(bit_string));
 
-    //cout << int(char(binary_to_decimal("10000000"))) << endl;
-
+    // message indicating how many bits were patted 
+    cout << char(bit_count);
+    
   return 0;
 }
 
