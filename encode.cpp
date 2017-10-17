@@ -6,8 +6,6 @@
 #include <map>
 #include <fstream>
 #include <string>
-#include <bitset> //MAY NOT NEED THIS
-#include <cstdint> //may not need 
 #include <cmath>
 
 using namespace std;
@@ -39,9 +37,10 @@ int main( int argc, char* argv[]){
   while (!cin.eof()) 
     {       
       char c = cin.get();
-      if(!cin.eof()){
+    
         string encode = charToEncode(c, mapOfEncodedAscii);
         
+       
         bit_string += encode;
         bit_count += encode.length();    
 
@@ -52,17 +51,17 @@ int main( int argc, char* argv[]){
           bit_string = bit_string.substr(8, bit_count); 
 
           cout << char(binary_to_decimal(byte_string));
-        }
+      
       }
     }
+
     // Patting "0" to multiple of 8 bits
-    for (int i=0; i<bit_count; i++){
+    int patting = 8 - bit_count; 
+    for (int i=0; i<patting; i++){
       bit_string += "0";
     }   
     cout << char(binary_to_decimal(bit_string));
-
-    // message indicating how many bits were patted 
-    cout << char(bit_count);
+    cout << char(patting);
     
   return 0;
 }
