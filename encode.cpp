@@ -6,12 +6,15 @@
 #include <map>
 #include <fstream>
 #include <string>
-#include <bitset>
+#include <bitset> //MAY NOT NEED THIS
+#include <cstdint> //may not need 
+#include <cmath>
 
 using namespace std;
 
 int charToAscii(char character); // Converting a character to its corresponding ASCII value
 string charToEncode(char c, map<string,string> encodedList); // Converting a character to its corresponding Encoded value
+int binary_to_decimal(string num); 
 
 int main( int argc, char* argv[]){
 
@@ -48,18 +51,19 @@ int main( int argc, char* argv[]){
           bit_count -= 8;
           bit_string = bit_string.substr(8, bit_count); 
 
-          bitset<8> set(byte_string);
-          cout << hex << set.to_ulong();
+          //cout << byte_string << " is the binary code for : "  << binary_to_decimal(byte_string) << endl;
+
+          cout << char(binary_to_decimal(byte_string));
         }
       }
     }
     for (int i=0; i<bit_count; i++){
       bit_string += "0";
     }
-    bitset<8> set(bit_string);
-    cout << hex << set.to_ulong() << endl;
+    //cout << binary_to_decimal(bit_string) << endl;
+    cout << char(binary_to_decimal(bit_string));
 
-    /////////////////////////////////////////// HOW TO KNOW HOW MANY PATTING BITS
+    //cout << int(char(binary_to_decimal("10000000"))) << endl;
 
   return 0;
 }
@@ -78,5 +82,13 @@ string charToEncode(char c, map<string,string> encodedList){
   return encodedList[ascii];
 }
 
+int binary_to_decimal(string num)
+{
+    int result = 0;
+    for(int i=0; i<num.length(); i++){      // length should not be more than 8
+      result += stoi(num.substr(num.length()-1-i, 1)) * pow(2, i);
+    }
+    return result;
+}
 
 

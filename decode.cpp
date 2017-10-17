@@ -7,10 +7,13 @@
 #include <bitset>
 #include <string>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
-const char* hex_char_to_bin(char c);
+
+string decimal_to_binary(int num);
+//const char* hex_char_to_bin(char c);
 
 int main (int argc, char* argv[]){
 
@@ -22,85 +25,68 @@ int main (int argc, char* argv[]){
     {
       istringstream iss(line1);
       string ascii_value;
-      string encode_value;
+      string huffman_value;
       iss >> ascii_value;
-      iss >> encode_value;
+      iss >> huffman_value;
 
-      mapOfEncodedAscii[ascii_value] = encode_value;  
+      mapOfEncodedAscii[huffman_value] = ascii_value;  // key is huffman value & value is ascii
     }    
   
-  int line = 0;
+//int line = 0;
+  string binary_string = "";
+  int bit_count = 0;
   while (!cin.eof())
-    {
-      
+    {   
       char c = cin.get();
-      //char d = cin.get();
       if(!cin.eof()){
-        cout << "line " << line++ << " : " ;
-      
-       
-        cout << hex_char_to_bin(c) << endl;
+
+        //cout << "character c is : " << c << endl;
+        //cout << "int of c is :  " << int(c) << endl;
+
+        binary_string += decimal_to_binary(int(c)); 
+        bit_count += binary_string.length();
+
+        int i=1;
+        bool loop = true;
+        while(loop){
+          if(i == bit_count) loop = false; 
+
+          if(mapOfEncodedAscii.count(binary_string.substr(0, i)) == 1){
+            int asciiVal = stoi(mapOfEncodedAscii[binary_string.substr(0,i)]); 
+            char asciiChar = asciiVal;
+            cout << "the character is : " << asciiChar << endl;
+
+            bit_count -= i;
+            binary_string = binary_string.substr(i, bit_count); 
+            i = 1;          
+          }
+
+          else{
+            i++;
+          }
+        }
       }
     }
-
-
-    //bitset<8> set("11110000");
-    //cout << hex << set.to_ulong() << endl;
-    //string heximal = hex << set.to_ulong() << endl;
-    //cout << "binary is " << bitset<sizeof(char) * CHAR_BIT> binary('a') << endl;
-    //cout << hex_char_to_bin('0') << endl;
-
-    /*
-    cout << "this is testing" << endl;
- 
-    string s = "11110000";
-    char str = s[1];
-    char d = '\x00';
-    
-    cout << d << " = " << ord('\x00') << endl;
-    d = d | str;
-    cout << d << " = " << ord('\x01') << endl;
-    d = d << 1;
-    cout << d << " = " << '\x10' << endl;
-    d = d | str; 
-    cout << d << " = " << '\x11' << endl;
-    
-    cout << "convert char to bin" << endl;
-    */
-    //d = d >> 2; 
-    //cout << d << endl;
-
-
-
-    //cout << "converting char to binary" << endl;
-    //cout << (d & 1) << endl;
-    //cout << ((d >> 1) )<< endl;
-    //cout << char(str) << endl;
+   cout << endl; //MAKE SURE TO DELTE THIS LINE
 
   return 0;
 }
 
 
-const char* hex_char_to_bin(char c)
+string decimal_to_binary(int num)
 {
-    // TODO handle default / error
-    switch(toupper(c))
-    {
-        case '0': return "0000";
-        case '1': return "0001";
-        case '2': return "0010";
-        case '3': return "0011";
-        case '4': return "0100";
-        case '5': return "0101";
-        case '6': return "0110";
-        case '7': return "0111";
-        case '8': return "1000";
-        case '9': return "1001";
-        case 'A': return "1010";
-        case 'B': return "1011";
-        case 'C': return "1100";
-        case 'D': return "1101";
-        case 'E': return "1110";
-        case 'F': return "1111";
+    string result = "";
+    if(num < 0)
+      num += 256;
+    for(int i=0; i<8; i++){
+      int bit = pow(2, 8-1-i);
+      if(num >= bit){
+        result += "1";
+        num -= bit;
+      } 
+      else {
+        result += "0";
+      }   
     }
+    return result;  
 }
