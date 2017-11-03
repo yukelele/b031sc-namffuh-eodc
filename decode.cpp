@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <cmath>
 
+//#include <ctime>
+
 using namespace std;
 
 string decimal_to_binary(int num); // Convert decimal value to binary value
@@ -28,25 +30,31 @@ int main (int argc, char* argv[]){
       mapOfEncodedAscii[huffman_value] = ascii_value;  // key is huffman value & value is ascii
     }    
   
+  //clock_t start; 
+  //double duration;
+  //start = clock(); 
+
   string binary_string = "";
   int bit_count = 0;
   unsigned char c;
   unsigned char d;
+
+  ///////////////////////////////////////////////// STOP
+  c = cin.get();
+  int i =1;
   while (!cin.eof())
   {   
-        c = cin.get();
         d = cin.get(); 
         if(cin.peek()!=EOF)
         { 
-          cin.putback(d);
+          
      
           binary_string += decimal_to_binary(int(c)); 
-          bit_count += binary_string.length();
+          bit_count += 8;
 
-          int i=1;
-          bool loop = true;
-          while(bit_count!=0 && loop){
-            if(i == bit_count) loop = false; 
+      
+          while(bit_count>0 && binary_string != ""){
+            if(i > bit_count) break; 
 
             if(mapOfEncodedAscii.count(binary_string.substr(0, i)) == 1){
               int asciiVal = stoi(mapOfEncodedAscii[binary_string.substr(0,i)]); 
@@ -57,21 +65,20 @@ int main (int argc, char* argv[]){
               binary_string = binary_string.substr(i, bit_count); 
               i = 1;          
             }
-
+            
             else{
               i++;
             }
           }
+          c = d;
         }
-        else
-        {
+      }
+
           binary_string += decimal_to_binary(int(c)).substr(0,8-int(d));
           bit_count = binary_string.length();
 
-          int i=1;
-          bool loop = true;
-          while(bit_count!=0 && loop){
-            if(i == bit_count) loop = false; 
+           i=1;
+          while(bit_count>0){
 
             if(mapOfEncodedAscii.count(binary_string.substr(0, i)) == 1){
               int asciiVal = stoi(mapOfEncodedAscii[binary_string.substr(0,i)]); 
@@ -87,8 +94,13 @@ int main (int argc, char* argv[]){
               i++;
             }
           }
-        }
-    }
+   
+
+//    cout << endl;
+  // duration = (clock() - start) / (double) CLOCKS_PER_SEC;
+   //// cout << "duration: " << duration << endl;
+
+
   return 0;
 }
 
@@ -110,4 +122,3 @@ string decimal_to_binary(int num)
     }
     return result;  
 }
-

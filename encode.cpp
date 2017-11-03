@@ -87,5 +87,3 @@ int binary_to_decimal(string num)
     }
     return result;
 }
-
-
