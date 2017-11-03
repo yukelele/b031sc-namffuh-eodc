@@ -78,7 +78,7 @@ int main (int argc, char* argv[]){
           bit_count = binary_string.length();
 
            i=1;
-          while(bit_count>0){
+          while(bit_count>0 && binary_string != ""){
 
             if(mapOfEncodedAscii.count(binary_string.substr(0, i)) == 1){
               int asciiVal = stoi(mapOfEncodedAscii[binary_string.substr(0,i)]); 
